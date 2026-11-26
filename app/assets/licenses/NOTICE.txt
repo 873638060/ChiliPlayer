@@ -1,0 +1,6 @@
+轻椒音乐组件说明
+本构建使用 Un4seen 官方 BASS Android 音频库及 AAC/APE/ALAC/FLAC/Opus 扩展。
+BASS 及官方扩展是专有组件，不是 GPL 或 LGPL 库。BASS 官方允许非商业个人使用，商业用途另需授权。
+BASS_AAC 说明与 GPL 文本随源码包附带；本次交付用于用户本地非商业测试，没有执行公开发布。
+下载入口：https://www.un4seen.com/bass.html
+完整上游说明见源码包 soft-lite/licenses。

@@ -1,0 +1,32 @@
+[
+  {
+    "component": "alac",
+    "url": "https://www.un4seen.com/files/bassalac24-android.zip",
+    "archive_sha256": "8CA58D4F3D1CF85557BB7A77E36288B1E45EF152DFED10E58DB7CFED62C47A46"
+  },
+  {
+    "component": "bass",
+    "url": "https://www.un4seen.com/files/bass24-android.zip",
+    "archive_sha256": "236C9017728A910DFE74E79D36D98AD6784F3558C21E8812CFCBAFE9BD0FEF41"
+  },
+  {
+    "component": "flac",
+    "url": "https://www.un4seen.com/files/bassflac24-android.zip",
+    "archive_sha256": "59C62FD60185450E157E727910BE2460A0F66DEDD2D6EA1BB3F1C80657DD0DA8"
+  },
+  {
+    "component": "opus",
+    "url": "https://www.un4seen.com/files/bassopus24-android.zip",
+    "archive_sha256": "76D3CB4AE8799D12D5C8F0138453B8834DF7173A66D88E56B47C75A5E4518945"
+  },
+  {
+    "component": "ape",
+    "url": "https://www.un4seen.com/files/bassape24-android.zip",
+    "archive_sha256": "B0E3EA16204DEFCB2DF4BC638ED1D195C0D9FB1608CE1DC3B31E334A28291B87"
+  },
+  {
+    "component": "aac",
+    "url": "https://www.un4seen.com/files/z/2/bass_aac24-android.zip",
+    "archive_sha256": "7C77811DC917DE87A53B2BB804AD10793D589A207BC0D7B38ECBC51AF25A5E03"
+  }
+]

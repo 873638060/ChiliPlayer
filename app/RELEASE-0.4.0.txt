@@ -1,0 +1,45 @@
+轻椒音乐 / ChiliPlayer 0.4.0 统一版
+日期：2026-11-27
+
+交付
+APK：ChiliPlayer-0.4.0.apk
+大小：1,255,122字节，约1.26 MB。
+同一个APK包含armeabi-v7a与arm64-v8a；不包含x86/x86_64。Android 6.0 / API 23起。
+包名：car.salt.player；versionName：0.4.0；versionCode：18。
+中文应用名“轻椒音乐”，英文应用名“ChiliPlayer”，保留青椒绿图标。
+
+统一与覆盖升级
+以已合并0.3.7.5功能的soft.5源码为基础，保留其BASS音频引擎和播放逻辑，加入同版本官方ARM64库。
+恢复原系统版的应用身份car.salt.player，沿用原0.3.7.5签名证书，升级序号由17递增到18。
+已在专用模拟器实际安装原0.3.7.5、建立测试数据、覆盖安装0.4.0并重启检查，全程未卸载主应用或清除其数据。
+账号仍可使用原AndroidKeyStore密钥解密；应用UID、存储权限、本地及服务器曲库、进度、模式、插队历史、主题、排序、搜索和ReplayGain设置保留。
+本包覆盖的是原car.salt.player应用。过去独立的car.salt.soft实验包是另一应用，不能被同一APK同时覆盖，其私有数据不会自动迁移。本轮未卸载该包或删除其数据。
+从本版起只有app/作为活动源码、app/build.ps1作为主构建入口；car/、soft-lite/和soft/仅留作历史参考。
+应用名称、设置标题和安装包名不再带soft、lite或单架构标签。诊断日志按实际进程报告ARM32/ARM64。
+
+版本规则
+版本集中维护在app/version.json，构建时写入清单并生成文件名，避免多个位置手动改号。
+使用“主版本.次版本.修订号”：兼容修复如0.4.1，功能扩展如0.5.0；不兼容变化增加主版本。当前仍保留0.x开发阶段。
+Android内部versionCode独立严格递增：本版18，下一次交付至少19，不按日期或架构拆号。
+详见app/VERSIONING.txt。规则依据：https://developer.android.com/studio/publish/versioning ；三段格式参考：https://semver.org/lang/zh-CN/ 。
+
+构建与验证
+- 签名v1/v2/v3检查通过，证书SHA256与原0.3.7.5一致：9c147bd46cae96305c66eefb076454e2d386e18dcb6e6f95eabfc6e3305e68e2。
+- APK清单显示versionName 0.4.0、versionCode 18、minSdk 23和两个ARM ABI。
+- 12个原生库与固定官方SDK文件逐字节匹配；ARM32 ELF机器类型40、ARM64类型183。依赖均由本包或Android系统提供。
+- ARM32库的Android API注记为16，ARM64为21，均不高于应用最低API 23。这是静态证据，不等同于64位运行实测。
+- Android 6 ARM32模拟器emulator-5584成功安装，系统实际选择armeabi-v7a。
+- MP3/FLAC/WAV/AAC/ALAC/Vorbis/Opus/APE播放、APE PCM哈希、正负PCM增益、定位、HTTP鉴权播放、存储兼容、歌词和封面回归通过。
+- 暂停、音频焦点、插队与历史、前后台刷新、触控、文件夹/搜索/多选范围、缓存重试/损坏保护、扫描取消及拉取中断恢复通过。
+- 已生成12张明暗主题页面截图；重点核对统一后的设置标题及布局。
+- 最后一次重建仅把诊断日志中的固定ARM32改为实际进程架构；最终APK补跑完整音频及重启恢复，新增架构日志断言通过。其他回归对应未改变的逻辑。
+原始证据在build/unified-0.4.0-20261127/；成功记录、静态检查和截图随源码包tests/verification-0.4.0/提供。
+
+验证边界
+本机可用运行环境为Android 6 ARM32模拟器；ARM64已完成打包、ELF、API注记、依赖及哈希检查，尚未进行64位设备运行测试。
+真实车机安装、导航混音、性能、温升及音质未实测。
+网络Range定位、完整缓存复用和缓存配额仍未新增；格式支持范围与soft.5保持一致。
+BASS为官方预编译组件，原生库未重编译；没有提取椒盐APK库，也没有公开发布本项目。
+
+APK SHA256
+f0e0b91e7498352e137bfcb5f8c0bdd2021e46bc4dea7a8e6aea6dfedf9ec9dd

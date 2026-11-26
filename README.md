@@ -1,35 +1,53 @@
 # 轻椒音乐 · ChiliPlayer
 
-<img src="car/res/drawable-xxxhdpi/icon.png" alt="轻椒音乐图标" width="96">
+<img src="app/res/drawable-xxxhdpi/icon.png" alt="轻椒音乐图标" width="96">
 
 之所以产生这个项目，是因为想在 Android 6 老车机上听 U 盘里的歌，也能顺手播放自己服务器上的音乐。「轻椒」和「青椒」同音，取的是「轻量版椒盐」的意思。
 
 ## 下载与使用
 
-[到 Releases 下载系统版 APK](https://github.com/873638060/ChiliPlayer/releases/latest)。最低支持 Android 6.0（API 23）。
+[下载最新版本](https://github.com/873638060/ChiliPlayer/releases/latest) · [0.4.5 发布说明](https://github.com/873638060/ChiliPlayer/releases/tag/v0.4.5) · [更新日志](更新日志.md)
 
-0.3.7.5 换上了青椒绿图标。应用名默认显示「轻椒音乐」，英语系统显示「ChiliPlayer」。
+当前版本 **0.4.5**，最低支持 Android 6.0（API 23）。一个 APK 同时支持 ARM32 和 ARM64，不再区分系统版、软解版或单架构版本。安装包约 1.26 MB，保留青椒绿图标；应用名默认显示「轻椒音乐」，英语系统显示「ChiliPlayer」。
 
-第一次打开，点「扫描音乐」选择要导入的文件夹。有自己的 Subsonic 或 OpenSubsonic 服务器，也可以在应用里添加。应用会记住曲库、队列和播放进度，遇到播放问题时也可以从设置里导出日志。
+第一次打开，点「扫描音乐」选择要导入的文件夹。如果设备缺少系统文件夹选择器，会打开应用内的目录选择弹窗。有自己的 Subsonic 或 OpenSubsonic 服务器，也可以在应用里添加。应用会记住曲库、队列和播放进度，遇到播放问题时可以从设置里导出日志。
 
+正式包沿用原包名和签名，可覆盖升级 0.3.7.5。旧 `car.salt.soft` 实验包属于另一应用，其数据不会自动迁入。
+
+## 遥控操作
+
+- 方向键移动焦点，确认键执行当前操作。纯图标按钮用圆形焦点提示；歌曲列表、文字操作和进度条保留适合各自形状的提示。
+- 歌曲列表上下选曲，短按确认播放；长按确认或菜单键打开“下一首播放 / 歌曲信息”。
+- 播放页从播放按钮向上进入进度条，左右每次预览 10 秒；确认定位，返回或移开焦点取消。
+- 返回优先取消定位预览或多选，再退出搜索、文件夹或播放页。
+
+播放页左侧封面和歌曲信息水平居中，与播放控件作为整体居中显示。触摸操作保留。
+
+## 验证情况
+
+0.4.3 的遥控回归在 Android 6 ARM32 模拟器通过，先科 C2 上用 ADB 等效按键验证过选曲、长按菜单、多选返回和进度定位。0.4.4 核对过明暗主题圆形焦点；0.4.5 已在 C2 覆盖安装并核对组件许可文案。
+
+ARM64 已做静态库检查，尚未在 ARM64 真机运行；实体红外遥控连发、MT3561 实车、其他分辨率和长期性能尚未完成验证。切换主题后焦点可能回到歌曲列表。
 
 ## 参考与致谢
 
-- **椒盐音乐（Salt Player）**。横屏曲库、底部播放栏和展开播放页参考了 12.0.0 版的界面和操作。开发时也看过发行 APK 的曲库和播放行为，没直接移植的椒盐应用源码。轻椒音乐是独立维护的项目。
-- **Tempus**。Subsonic 的专辑浏览、搜索和串流接口，以及 ReplayGain 的预读、缓存和切歌处理，都参考了 Tempus ，没直接移植的 Tempus 应用源码。[Tempus 上游仓库](https://github.com/eddyizm/tempus)
+- **椒盐音乐（Salt Player）**。横屏曲库、底部播放栏和展开播放页参考了 12.0.0 版的界面和操作。轻椒音乐是独立维护的项目。
+- **Tempus**。Subsonic 的专辑浏览、搜索和串流接口，以及 ReplayGain 的预读、缓存和切歌处理，参考了 [Tempus](https://github.com/eddyizm/tempus)。
 
 ## 自己构建
 
-在 Windows PowerShell 里构建。准备好 Android SDK Platform 36、Build Tools 35.0.0 和 Android Studio 自带的 JBR，然后在项目根目录运行：
+当前活动源码位于 `app/`；`car/` 是保留的历史系统版源码。每次构建前先核对 [版本配置](app/version.json)、[更新日志](更新日志.md) 和最新 Release，避免使用旧对话中的版本。
+
+准备 Android SDK Platform 36、Build Tools 35.0.0 和 Android Studio 自带的 JBR，按实际安装位置调整 `app/build.ps1` 中的 SDK/JDK 路径，在项目根目录运行：
 
 ```powershell
-.\car\build.ps1
+.\app\build.ps1 -SigningKey <原签名文件路径>
 ```
 
-如果工具装在自定义位置，可以设置 `ANDROID_SDK_ROOT`（也支持 `ANDROID_HOME`）和 `SALTPLAYER_JDK`。APK 会生成在 `dist/`，首次构建会使用本机测试签名。覆盖安装需要和原应用使用同一签名。
+APK 输出到 `dist/`。签名私钥不随源码公开；现有脚本会核对原发布证书，缺少原签名时会停止。自行派生的版本需要配置自己的签名及证书校验，不能直接覆盖官方签名安装包。
 
-[测试说明](car/tests/README.txt)里有系统版回归的步骤。测试会写入测试账号、曲库和队列，请用独立模拟器跑。
+构建与测试入口见 [app/README.txt](app/README.txt)。会修改测试账号、曲库或队列的回归只能在独立模拟器运行。
 
 ## 许可证
 
-源码按 GPL-2.0-or-later 发布。[GPL 第 2 版全文](LICENSE) · [JMAC 第三方声明](car/assets/licenses/NOTICE.txt)
+项目源码沿用 [GPL-2.0-or-later](LICENSE)。BASS 及扩展的二进制组件采用各自的许可，详见 [组件说明](app/assets/licenses/NOTICE.txt) 和 [上游许可文件](app/licenses/)。源码许可不替代这些组件的授权条件。

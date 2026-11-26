@@ -19,3 +19,7 @@ local.properties
 __pycache__/
 /car/tests/code.jar
 /soft/
+
+/app/tests/classes/
+/app/tests/dex/
+/app/tests/code.jar

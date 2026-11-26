@@ -1,0 +1,62 @@
+[
+  {
+    "path": "armeabi-v7a/libbass.so",
+    "bytes": 240108,
+    "sha256": "26a8f174fc763f8171b97a052e0994cbf6284f0c276cb853017cc66220167a3f"
+  },
+  {
+    "path": "armeabi-v7a/libbass_aac.so",
+    "bytes": 195972,
+    "sha256": "198cc38c3e68b5f0c9e1b06df6349bcea8704fba740d53ceb62642fc35dcfec8"
+  },
+  {
+    "path": "armeabi-v7a/libbassalac.so",
+    "bytes": 15264,
+    "sha256": "4488671403f64d64ef2f58a8ae419bd122c3209b05d99b28776c19b604296757"
+  },
+  {
+    "path": "armeabi-v7a/libbassape.so",
+    "bytes": 145728,
+    "sha256": "7d5a40035b6bb11011df6feb013e6d347ee4db794ec77b8535f88ad197821b25"
+  },
+  {
+    "path": "armeabi-v7a/libbassflac.so",
+    "bytes": 51224,
+    "sha256": "f4e13118c8a1e8c0209ee331cd208241f602d9e408d1ea17b8222921a9bb9e27"
+  },
+  {
+    "path": "armeabi-v7a/libbassopus.so",
+    "bytes": 96936,
+    "sha256": "8993c7b3094a9c97333b08ebd51ec000811b79adaae505ce8be66e49b6809135"
+  },
+  {
+    "path": "arm64-v8a/libbass.so",
+    "bytes": 324744,
+    "sha256": "9a761481e30d44a2a96df1f0986f2aab629be469a6b2fcfdf043923a1f18e365"
+  },
+  {
+    "path": "arm64-v8a/libbass_aac.so",
+    "bytes": 225960,
+    "sha256": "9debc0f7b3bdcbfde7f41a1839f7e7c0a4b5145688ad15bab1f18ca616f05eda"
+  },
+  {
+    "path": "arm64-v8a/libbassalac.so",
+    "bytes": 22224,
+    "sha256": "522744ddad085762bf76b69c7e5c39a9b770d18c23e206732eb2263ff3c833b3"
+  },
+  {
+    "path": "arm64-v8a/libbassape.so",
+    "bytes": 261912,
+    "sha256": "f783fa2b56360ebfe523d1f3c09982fbc6b4c1d6d206393009c08190e1698b6d"
+  },
+  {
+    "path": "arm64-v8a/libbassflac.so",
+    "bytes": 66328,
+    "sha256": "67441c26167bc5619aa145a8e011f87a69384974f772a5773fe3622b1fce8ceb"
+  },
+  {
+    "path": "arm64-v8a/libbassopus.so",
+    "bytes": 118456,
+    "sha256": "789309efbdc193913ea09c9a94cc1aece7164b3bec0cfe92df2b2532a379044b"
+  }
+]
