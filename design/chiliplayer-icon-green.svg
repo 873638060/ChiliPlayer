@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">轻椒音乐</title>
+  <defs>
+    <linearGradient id="background" x1="44" y1="30" x2="468" y2="486" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2B8057"/>
+      <stop offset="1" stop-color="#164B36"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#background)"/>
+  <path fill="#FFF1DA" d="M 291,185 C 291,147 312,122 345,114 C 354,112 361,117 362,124 C 364,131 360,138 352,140 C 330,146 318,163 318,185 Z"/>
+  <path fill="#FFF1DA" fill-rule="evenodd" d="M 117,342 C 168,332 193,302 215,252 C 237,204 265,175 308,175 C 355,175 386,209 388,253 C 390,316 332,369 252,385 C 205,395 153,384 115,363 C 104,357 105,345 117,342 Z M 264,235 C 259,232 252,236 252,242 L 252,313 C 252,319 259,323 264,320 L 322,285 C 328,282 328,274 322,271 Z"/>
+</svg>
+

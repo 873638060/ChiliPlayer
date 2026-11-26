@@ -8,7 +8,7 @@ $jdk=$env:SALTPLAYER_JDK
 if(!$jdk){$jdk=Join-Path $env:ProgramFiles 'Android/Android Studio/jbr'}
 $android="$sdk/platforms/android-36/android.jar"
 $toolsDir="$sdk/build-tools/35.0.0"
-$out="$project/dist/NewSalt-Car-0.3.7.4.apk"
+$out="$project/dist/ChiliPlayer-0.3.7.5.apk"
 function run([string]$program,[string[]]$arguments){ & $program @arguments; if($LASTEXITCODE){throw "$program failed ($LASTEXITCODE)"} }
 New-Item -Type Directory -Force "$work/classes","$work/gen","$work/dex","$project/dist" | Out-Null
 Get-ChildItem -LiteralPath "$work/classes" -Filter '*.class' -Recurse -File | ForEach-Object { Remove-Item -LiteralPath $_.FullName }

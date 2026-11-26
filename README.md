@@ -6,6 +6,8 @@
 
 [到 Releases 下载系统版 APK](https://github.com/873638060/ChiliPlayer/releases/latest)。最低支持 Android 6.0（API 23）。
 
+0.3.7.5 换上了青椒绿图标。应用名默认显示「轻椒音乐」，英语系统显示「ChiliPlayer」。
+
 第一次打开，点「扫描音乐」选择要导入的文件夹。有自己的 Subsonic 或 OpenSubsonic 服务器，也可以在应用里添加。应用会记住曲库、队列和播放进度，遇到播放问题时也可以从设置里导出日志。
 
 
