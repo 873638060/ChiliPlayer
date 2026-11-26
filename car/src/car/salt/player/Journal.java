@@ -39,7 +39,7 @@ final class Journal {
     static void read(Context context, Reader reader) {
         File dir = context.getFilesDir();
         worker.execute(() -> {
-            StringBuilder text = new StringBuilder("新椒盐 "+version(context)+" · Android " + Build.VERSION.RELEASE
+            StringBuilder text = new StringBuilder("轻椒音乐 "+version(context)+" · Android " + Build.VERSION.RELEASE
                     + " · API " + Build.VERSION.SDK_INT + "\n\n");
             try {
                 for (String name : new String[]{"events.previous.txt", "events.txt"}) {

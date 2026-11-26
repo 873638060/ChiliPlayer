@@ -335,7 +335,7 @@ public final class Home extends Activity {
     void pickLogDestination(){
         String stamp=new java.text.SimpleDateFormat("yyyyMMdd-HHmmss",Locale.US).format(new Date());
         Intent picker=new Intent(Intent.ACTION_CREATE_DOCUMENT).addCategory(Intent.CATEGORY_OPENABLE)
-                .setType("text/plain").putExtra(Intent.EXTRA_TITLE,"新椒盐-运行日志-"+stamp+".txt")
+                .setType("text/plain").putExtra(Intent.EXTRA_TITLE,"轻椒音乐-运行日志-"+stamp+".txt")
                 .putExtra("android.content.extra.SHOW_ADVANCED",true);
         try{startActivityForResult(picker,EXPORT_LOG);}
         catch(ActivityNotFoundException e){toast("车机缺少可保存文件的系统文件选择器");}
