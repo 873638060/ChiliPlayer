@@ -1,34 +1,32 @@
 # 轻椒音乐 · ChiliPlayer
 
-面向 Android 6.0（API 23）及以上设备的本地音乐播放器，主要用于车机横屏。「轻椒」谐音「青椒」，寓意轻量版椒盐。支持从授权文件夹扫描音乐，也支持连接自建 Subsonic／OpenSubsonic 服务器。
+我做轻椒音乐，主要是为了在 Android 6 老车机上听 U 盘里的歌，也能顺手播放自己服务器上的音乐。「轻椒」和「青椒」同音，取的是「轻量版椒盐」的意思。
 
-- 按歌曲或文件夹浏览，按当前筛选结果随机播放。
-- 支持曲库缓存、队列恢复、歌词、ReplayGain 和手动导出诊断日志。
-## 版本
+## 下载与使用
 
-| 分支目录 | 版本 | 应用包名 | 验证情况 |
-| --- | --- | --- | --- |
-| [car/](car/) | 0.3.7.4 系统版 | `car.salt.player` | Android 6 模拟器完成播放、文件夹范围、缓存和重启恢复回归。 |
+[到 Releases 下载系统版 APK](https://github.com/873638060/ChiliPlayer/releases/latest)。最低支持 Android 6.0（API 23）。
 
-真实 MT3561 车机仍待验证。
+第一次打开，点「扫描音乐」选择要导入的文件夹。有自己的 Subsonic 或 OpenSubsonic 服务器，也可以在应用里添加。进入文件夹后，点一首歌或点随机播放，队列都按当前列表来。应用会记住曲库、队列和播放进度，遇到播放问题时也可以从设置里导出日志。
 
-## 构建
+我在 Android 6 模拟器上跑过播放、文件夹筛选、曲库缓存和重启恢复的回归测试。这次也重新构建了改名后的 APK，并核对了签名。MT3561 实车还没跑过这份安装包。
 
-在 Windows PowerShell 中执行。安装 Android SDK Platform 36、Build Tools 35.0.0 和 Android Studio 自带的 JBR。脚本默认查找 Android Studio 与 SDK 的标准安装路径。自定义安装时，设置 `ANDROID_SDK_ROOT`（也支持 `ANDROID_HOME`）和 `SALTPLAYER_JDK`。
+## 我参考了什么
+
+- **椒盐音乐（Salt Player）**。我参考了 12.0.0 版的横屏曲库、底部播放栏和展开播放页，也看过发行 APK 的曲库和播放行为。把现在的源码和留存资料做了对照，没发现直接移植的椒盐应用源码。轻椒音乐由我独立维护。
+- **Tempus**。我在做 Subsonic 时参考了它的专辑浏览、搜索和串流接口，做 ReplayGain 时参考了增益预读、缓存和切歌处理。对照两边的源码，没发现直接移植的 Tempus 应用源码。[Tempus 上游仓库](https://github.com/eddyizm/tempus)
+
+## 自己构建
+
+我用 Windows PowerShell 构建。准备好 Android SDK Platform 36、Build Tools 35.0.0 和 Android Studio 自带的 JBR，然后在项目根目录运行：
 
 ```powershell
 .\car\build.ps1
 ```
 
-APK 输出到 `dist/`。首次构建会在 `build/` 下生成本机测试签名。更新已安装版本需要使用相同签名。
+如果工具装在自定义位置，可以设置 `ANDROID_SDK_ROOT`（也支持 `ANDROID_HOME`）和 `SALTPLAYER_JDK`。APK 会生成在 `dist/`，首次构建会使用本机测试签名。覆盖安装需要和原应用使用同一签名。
 
-系统版回归详见 [测试说明](car/tests/README.txt)。测试会写入应用内的测试账号、曲库和播放队列，请在独立测试模拟器运行。
-
-## 参考与致谢
-
-- **椒盐音乐（Salt Player）**。本项目的横屏曲库、迷你播放栏和展开播放页参考椒盐音乐 12.0.0 的界面与交互。早期开发也查看过发行 APK 的曲库与播放行为。对照当前公开应用源码与留存的分析资料，未发现直接移植的椒盐应用源码。轻椒音乐由本项目独立维护，与椒盐音乐无官方隶属关系。
-- **Tempus**。开发时参考过 Tempus 的 Subsonic 专辑浏览、搜索和串流接口，以及 ReplayGain 的预读、缓存和切歌处理。对照现有源码，未发现直接移植的 Tempus 应用源码。[Tempus 上游仓库](https://github.com/eddyizm/tempus)
+[测试说明](car/tests/README.txt)里有系统版回归的步骤。测试会写入测试账号、曲库和队列，请用独立模拟器跑。
 
 ## 许可证
 
-应用源码按 GPL-2.0-or-later 提供，详见 [GPL 第 2 版全文](LICENSE)。JMAC 的上游地址与许可证见 [第三方声明](car/assets/licenses/NOTICE.txt)。
+我按 GPL-2.0-or-later 发布应用源码。[GPL 第 2 版全文](LICENSE) · [JMAC 第三方声明](car/assets/licenses/NOTICE.txt)
