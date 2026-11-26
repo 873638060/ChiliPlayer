@@ -1,5 +1,7 @@
 # 轻椒音乐 · ChiliPlayer
 
+<img src="car/res/drawable-xxxhdpi/icon.png" alt="轻椒音乐图标" width="96">
+
 之所以产生这个项目，是因为想在 Android 6 老车机上听 U 盘里的歌，也能顺手播放自己服务器上的音乐。「轻椒」和「青椒」同音，取的是「轻量版椒盐」的意思。
 
 ## 下载与使用
