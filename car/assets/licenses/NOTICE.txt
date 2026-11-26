@@ -1,0 +1,7 @@
+APE decoder: JMAC 1.7.6, Dmitry Vaguine and contributors.
+Upstream: https://github.com/Tianscar/jmac
+Source artifact: https://repo.maven.apache.org/maven2/com/tianscar/javasound/jmac/1.7.6/jmac-1.7.6-sources.jar
+The decoder, info, prediction and tools source directories are included unmodified under car/vendor/jmac.
+The Maven metadata says LGPL 2.0; individual source headers say GPL 2.0 or later. This combined build and all accompanying application source are provided under GPL 2.0 or later to respect those source headers. See JMAC-GPL-2.0.txt.
+No upstream Java Sound service, desktop player or encoder is included in the APK.
+The corresponding application and decoder source are included in this repository. Rebuild with car/build.ps1; replacing the decoder sources is supported. No warranty.
